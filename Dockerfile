@@ -15,10 +15,10 @@ FROM debian:buster
 COPY srcs/setup.sh .
 COPY srcs/config.sh .
 COPY srcs/wp_db.sql .
-COPY srcs/wp /var/www/html/wp
 RUN sh setup.sh
 COPY srcs/default /etc/nginx/sites-available/default
 COPY srcs/nginx.conf etc/nginx/nginx.conf
+COPY srcs/wp-config.php /var/www/html/wp/wp-config.php
 
 CMD ["sh", "config.sh"]
 
